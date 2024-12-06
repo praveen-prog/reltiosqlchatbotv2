@@ -4,6 +4,7 @@ from helper import TableListClass
 import os
 from logger import logging
 import time
+import json
 
 os.chdir("src/")
 app = Flask(__name__)
@@ -24,7 +25,7 @@ def chat():
     response = obj.full_chain_call(input)
     logging.info(f"Response value is : {response}")
     print("Response : ", response)
-    return str(response)
+    return jsonify(response)
 
 def generate_stream():
     def generate():
